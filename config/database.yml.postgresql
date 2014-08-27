@@ -1,0 +1,19 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: bantuin-TA_development
+  pool: 5
+  username: postgres
+  password: 12345678
+  host: localhost
+  port: 5432
+
+test:
+  adapter: postgresql
+  encoding: unicode
+  database: bantuin-TA_test
+  pool: 5
+  username: postgres
+  password: 12345678
+  host: localhost
+  port: 5432

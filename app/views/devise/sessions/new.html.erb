@@ -1,17 +1,31 @@
-<h2>Log in</h2>
+<div class="panel-body login-container">
+  <h3 class="text-center">Login To</h3>
+  <h2 class="text-center">Forecasting</h2>
+  <h5>
+    Please Enter Your Information
+  </h5>
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name), class: "form form-signin", role: "form") do |f| %>
+    <div class="form-group">
+      <div class="input-group">
+        <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+        <%= f.email_field :email, autofocus: true, class: "form-control", placeholder: 'Username or Email' %>
+      </div>
+    </div>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email, autofocus: true %></div>
+    <div class="form-group">
+      <div class="input-group">
+        <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
+         <%= f.password_field :password, autocomplete: "off",class: 'form-control', placeholder: 'Password' %>
+      </div>
+    </div>
 
-  <div><%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "off" %></div>
-
-  <% if devise_mapping.rememberable? -%>
-    <div><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
-  <% end -%>
-
-  <div><%= f.submit "Log in" %></div>
-<% end %>
-
+    <div class="form-group">
+      <% if devise_mapping.rememberable? -%>
+        <%= f.check_box :remember_me %>
+        <%= f.label :remember_me,:class => "lbl" %>
+      <% end -%>
+    </div>
+    <%= f.submit "Sign in",class: "btn btn-sm btn-primary btn-block", role: "button" %>
+  <% end %>
+</div>
 <%#= render "devise/shared/links" %>

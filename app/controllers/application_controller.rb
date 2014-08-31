@@ -2,26 +2,15 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   layout :layout_by_resource
 
-  def check_authentication
-    unless user_signed_in?
-      redirect_to :new_user_session
-    end
-  end
-
-  private
-
-  def after_sign_in_path_for(resource)
-    set_session_users(resource)
-    root_path
-  end
-
-  def after_sign_out_path_for(resource)
-    root_path
-  end
-
   protected
 
   def layout_by_resource
     devise_controller? ? 'login_layout' : 'application'
+  end
+
+  def configure_permitted_parameters
+    # devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:login,:username, :email, :password, :password_confirmation, :remember_me) }
+    devise_parameter_sanitizer.for(:sign_in) { |u| u.permit(:login, :password, :remember_me) }
+    # devise_parameter_sanitizer.for(:account_update) { |u| u.permit(:username, :email, :password, :password_confirmation, :current_password) }
   end
 end

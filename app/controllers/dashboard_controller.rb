@@ -1,6 +1,6 @@
 class DashboardController < ApplicationController
-  before_filter :check_authentication, :except => [:login, :logout]
-
+  before_filter :authenticate_user!, :except => [:login, :logout]
   def index
+
   end
 end

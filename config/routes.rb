@@ -5,5 +5,6 @@ BantuinTa::Application.routes.draw do
   as :user do
     get 'signin' => 'sessions#new', as: :new_user_session
     post 'signin' => 'sessions#create', as: :user_session
+    delete 'signout' => 'devise/sessions#destroy', :as => :destroy_user_session
   end
 end

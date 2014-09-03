@@ -7,8 +7,16 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<%= yield %>
-
+  <div id="wrapper">
+    <%= render partial: 'layouts/navigation' %>
+    <div id="page-wrapper">
+      <div class="container-fluid">
+        <%= render partial: 'layouts/page_title' %>
+        <%= render partial: 'layouts/alert_messages' %>
+        <%= yield %>
+      </div>
+      <!-- /.container-fluid -->
+    </div>
+  </div>
 </body>
 </html>

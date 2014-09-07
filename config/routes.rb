@@ -7,4 +7,9 @@ BantuinTa::Application.routes.draw do
     post 'signin' => 'sessions#create', as: :user_session
     delete 'signout' => 'devise/sessions#destroy', :as => :destroy_user_session
   end
+
+  namespace :superadmin do
+    resources :users
+    resources :roles
+  end
 end

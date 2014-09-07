@@ -13,16 +13,16 @@
         <!-- /input-group -->
       <!-- </li> -->
       <li>
-        <a class="active" href="index.html"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+        <a class="<%= @current_page[:parent] == 'Dashboard' ? 'active' : '' %>" href="/"><i class="fa fa-dashboard fa-fw"></i>Dashboard</a>
       </li>
       <li>
-        <a href="#"><i class="fa fa-sitemap fa-fw"></i>Superadmin Panel<span class="fa arrow"></span></a>
+        <a href="#"><i class="fa fa-lock fa-fw"></i>Superadmin Panel<span class="fa arrow"></span></a>
         <ul class="nav nav-second-level">
           <li>
-            <a href="#">Role</a>
+            <%= link_to "<i class='fa fa-fw fa-group'></i>Roles".html_safe, superadmin_roles_path, { class: @current_page[:parent] == 'Roles' ? 'active' : '' }%>
           </li>
           <li>
-            <a href="#">User</a>
+            <%= link_to "<i class='fa fa-fw fa-user'></i>Users".html_safe, superadmin_users_path, { class: @current_page[:parent] == 'Users' ? 'active' : '' } %>
           </li>
         </ul>
           <!-- /.nav-second-level -->

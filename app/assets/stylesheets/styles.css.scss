@@ -176,3 +176,15 @@ h1,h2,h3,h4,h5,h6,.brand
 .btn-danger.btn-outline:hover {
     color: #fff;
 }
+
+/* footer */
+#footer {
+  height: 60px;
+  color: #eee;
+  p {
+    margin-top: 15px;
+    margin-left: 20px;
+    color: #949191;
+    text-align:center;
+  }
+}

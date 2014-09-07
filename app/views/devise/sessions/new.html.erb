@@ -1,9 +1,10 @@
-<div class="panel-body login-container">
+<div class="panel-body">
   <h3 class="text-center">Login To</h3>
   <h2 class="text-center">Forecasting</h2>
   <h5>
     Please Enter Your Information
   </h5>
+  <%= render partial: 'layouts/alert_messages' %>
   <%= form_for(resource, as: resource_name, url: session_path(resource_name), class: "form form-signin", role: "form") do |f| %>
     <div class="form-group">
       <div class="input-group">

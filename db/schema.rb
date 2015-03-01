@@ -11,14 +11,66 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140903142718) do
+ActiveRecord::Schema.define(version: 20150301161922) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "assignments", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "description"
+  end
+
+  create_table "customers", force: true do |t|
+    t.string   "name"
+    t.string   "address"
+    t.string   "phone"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "orders", force: true do |t|
+    t.string   "transaction_code"
+    t.integer  "product_id"
+    t.integer  "customer_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "product_suppliers", force: true do |t|
+    t.integer  "product_id"
+    t.integer  "supplier_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "products", force: true do |t|
+    t.string   "name"
+    t.integer  "user_id"
+    t.integer  "qty"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "role_assignments", force: true do |t|
+    t.integer  "role_id"
+    t.integer  "assignment_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "roles", force: true do |t|
     t.string   "name"
     t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "suppliers", force: true do |t|
+    t.string   "name"
+    t.string   "address"
+    t.string   "phone"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

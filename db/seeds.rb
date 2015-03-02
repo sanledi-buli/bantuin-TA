@@ -1,8 +1,25 @@
-# Create role superadmin.
-role = Role.create(
-  name: 'superadmin',
-  description: 'Can handle all features'
-)
+# Default Role
+array_of_role = [
+  {name: 'superadmin', description: 'Can manage all'},
+  {name: 'manager', description: 'Manager role'},
+  {name: 'staff inventory', description: 'Staff inventory'},
+  {name: 'sales', description: 'Sales'}
+]
+
+Role.create(array_of_role)
+role = Role.first
+
+# Default assignments
+
+array_of_assignments = [
+  {description: "role"},
+  {description: "user"},
+  {description: "product"},
+  {description: "supplier"},
+  {description: "orders"}
+]
+
+Assignment.create(array_of_assignments)
 
 # Create default user.
 user = User.new(
